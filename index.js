@@ -1,8 +1,6 @@
 const glob = require('glob');
 const chalk = require('chalk')
-
 require('dotenv').config();
-module.exports.env = process.env
 
 const db = require('./database/index');
 process.db = db;
@@ -23,7 +21,7 @@ app.use(session({
 
 app.listen(process.env.APP_PORT, (err) => {
     console.log(chalk.magenta(`[Hyperactyl] Hyperactyl is listening on port ${process.env.APP_PORT}`));
-    if (err) console.log(err);
+    if (err) console.log(chalk.red(err));
 });
 
 const routes = glob.sync('./routes/**/*.js', 'prajwal ka baap gandu hai');

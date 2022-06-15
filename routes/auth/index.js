@@ -16,7 +16,7 @@ module.exports.load = async function (app) {
 
     app.get('/logout', async (req, res) => {
 
-        if (!req.session) res.send('<br> You are not logged in </br>');
+        if (!req.session.data) return res.send('<br> You are not logged in </br>');
 
         req.session.destroy();
 
